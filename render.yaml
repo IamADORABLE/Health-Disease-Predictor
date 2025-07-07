@@ -1,7 +1,5 @@
 services:
   - type: web
-    name: health-app
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app:app"
+    name: health-disease-predictor
+    env: docker
     plan: free
