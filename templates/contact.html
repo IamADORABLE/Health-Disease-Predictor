@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact - Health App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact us for support or inquiries regarding the Health App."
+    />
+    <meta name="keywords" content="health, app, contact, support" />
+    <meta name="author" content="Health App Team" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- header -->
+      <section class="header">
+        <div class="navbar">
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </div>
+      </section>
+      <!-- header done -->
+
+      <!-- content -->
+      <section class="contact">
+        <h1 class="title">Contact us</h1>
+        <div class="contactbox">
+          <p>Contact us for more information</p>
+          <form action="/contact" method="post">
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div>
+              <input type="email" name="email" placeholder="Enter your email" />
+            </div>
+            <div>
+              <textarea
+                name="message"
+                id=""
+                placeholder="Your Message"
+              ></textarea>
+            </div>
+            <div>
+              <input type="submit" value="send" id="btn" />
+            </div>
+          </form>
+          {% if success %}
+          <p style="color: green; text-align: center">
+            Thank you for contacting us! We'll get back to you soon.
+          </p>
+          {% endif %}
+        </div>
+      </section>
+      <!-- content done -->
+
+      <!-- footer  -->
+      <section class="footer">
+        <footer>
+          <p>&copy; 2025 Health App Team</p>
+          <div class="fitem">
+            <ul>
+              <li><i class="bx bxl-facebook-circle"></i>Facebook</li>
+              <li><i class="bx bxl-twitter"></i>twitter</li>
+              <li><i class="bx bxl-instagram-alt"></i>Instagram</li>
+              <li><i class="bx bxl-linkedin-square"></i>linkedin</li>
+            </ul>
+          </div>
+        </footer>
+      </section>
+      <!-- footer done -->
+    </div>
+  </body>
+</html>

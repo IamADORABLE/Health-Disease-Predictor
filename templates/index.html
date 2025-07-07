@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home - Health App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Welcome to the Health Assistant, your go-to tool for quick health insights!"
+    />
+    <meta
+      name="keywords"
+      content="health, assistant, symptoms, prediction, health insights"
+    />
+    <meta name="author" content="Health App Team" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <section class="header">
+        <div class="navbar">
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <section class="contenthome">
+        <h1 class="title">Welcome to the Health Assistant</h1>
+        <p class="description">
+          Your go-to tool for quick health insights. Just select your symptoms
+          and we'll help suggest what condition you might be dealing with.
+        </p>
+
+        <div class="input-group">
+          <form action="/predict" method="post">
+            <div>
+              <label for="symptoms" class="ent">
+                <strong>Select your symptoms:</strong> </label
+              ><br />
+
+              <!-- Symptom Buttons -->
+              <div id="symptomButtons">
+                {% for symptom in all_symptoms %}
+                <button
+                  type="button"
+                  class="symptom-btn"
+                  data-symptom="{{ symptom }}"
+                >
+                  {{ symptom.title() }}
+                </button>
+                {% endfor %}
+              </div>
+
+              <!-- Display selected symptoms -->
+              <div id="selectedSymptoms">Selected: None</div>
+
+              <!-- Hidden input for backend -->
+              <input type="hidden" name="symptoms" id="symptoms" required />
+            </div>
+
+            <div>
+              <button type="submit" id="btn1">Predict</button>
+              <button type="button" id="clearBtn">Clear Symptoms</button>
+            </div>
+          </form>
+
+          {% if prediction_text %}
+          <p class="result">{{ prediction_text }}</p>
+          {% endif %}
+          {% if disease_info %}
+          <div class="disease-details">
+            <h3>Disease Information</h3>
+            <p><strong>Description:</strong> {{ disease_info.description }}</p>
+            <p><strong>Medication:</strong> {{ disease_info.medication }}</p>
+            <p><strong>Diet:</strong> {{ disease_info.diet }}</p>
+            <p><strong>Precautions:</strong> {{ disease_info.precautions }}</p>
+            <p><strong>Workout Tips:</strong> {{ disease_info.workout }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <section class="footer">
+        <footer>
+          <p>&copy; 2025 Health App Team</p>
+          <div class="fitem">
+            <ul>
+              <li><i class="bx bxl-facebook-circle"></i> Facebook</li>
+              <li><i class="bx bxl-twitter"></i> Twitter</li>
+              <li><i class="bx bxl-instagram-alt"></i> Instagram</li>
+              <li><i class="bx bxl-linkedin-square"></i> LinkedIn</li>
+            </ul>
+          </div>
+        </footer>
+      </section>
+    </div>
+    <br />
+    <!-- JS Script to handle button clicks -->
+    <script>
+      const buttons = document.querySelectorAll(".symptom-btn");
+      const hiddenInput = document.getElementById("symptoms");
+      const selectedDiv = document.getElementById("selectedSymptoms");
+      let selected = [];
+
+      // Handle button clicks
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const symptom = button.getAttribute("data-symptom");
+
+          if (selected.includes(symptom)) {
+            selected = selected.filter((s) => s !== symptom);
+            button.classList.remove("selected");
+          } else {
+            selected.push(symptom);
+            button.classList.add("selected");
+          }
+
+          hiddenInput.value = selected.join(", ");
+          selectedDiv.textContent =
+            selected.length > 0
+              ? "Selected: " + hiddenInput.value
+              : "Selected: None";
+        });
+      });
+
+      // Clear all selected symptoms
+      document.getElementById("clearBtn").addEventListener("click", () => {
+        selected = [];
+        buttons.forEach((btn) => btn.classList.remove("selected"));
+        hiddenInput.value = "";
+        selectedDiv.textContent = "Selected: None";
+      });
+    </script>
+  </body>
+</html>

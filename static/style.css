@@ -1,0 +1,362 @@
+/* * {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+
+} */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(105deg, rgb(234, 234, 168), rgb(29, 29, 160));
+  color: #333;
+  align-items: center;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+.container {
+  max-width: 900px;
+  min-height: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* styling header  */
+.header {
+  display: grid;
+  grid-template-columns: 20% 75%;
+  background: rgb(255, 255, 255);
+}
+.navbar {
+  /* padding-left: 50%; */
+  padding-top: 5%;
+  margin-left: 700px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  background-color: #0066cc;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.navbar ul li a:hover {
+  background-color: rgb(186, 205, 247);
+  border-radius: 6px;
+}
+.navbar li {
+  display: inline;
+}
+.navbar a {
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  text-decoration-line: underline;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 2%;
+}
+/* styling header done */
+
+/* styling content */
+
+/* .content {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  padding: 0 5%;
+  text-align: center;
+  color: black;
+  margin: 3% 0;
+  /* align-items: center; */
+*/
+/* .title {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  margin-top: 2%;
+  text-transform: uppercase;
+  margin-bottom: 5%;
+} */
+/* styling content done */
+
+/* styling home */
+
+/* Home Page Specific Styling */
+
+
+.contenthome {
+  text-align: center;
+  padding: 20px;
+}
+
+.description {
+  font-size: 20px;
+  margin-top: 50px;
+  color: black;
+}
+
+.input-group {
+  display: flex;
+  /* margin-top: 200px; */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 380px;
+  margin-top: 100px;
+}
+.ent {
+  text-align: center;
+}
+.symptoms {
+  margin-left: 10px;
+}
+.input-group input[type="text"] {
+  padding: 15px;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  color: #050505;
+  margin-bottom: 10px;
+}
+#btn1 {
+  background: black;
+  color: white;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 80px;
+  padding: 5px;
+  margin-left: 290px;
+}
+
+/* styling home done  */
+
+/* styling about */
+.about {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.aboutdescription {
+  margin-bottom: 285px;
+  margin-top: 100px;
+  font-size: 20px;
+}
+/* styling about done */
+
+/* styling contact */
+.contact {
+  margin-bottom: 5%;
+}
+.contact .title {
+  text-align: center;
+  font-size: 2em;
+  color: #050505;
+  margin-bottom: 10px;
+}
+
+.contactbox {
+  flex-basis: 20%;
+}
+.contactbox form input {
+  width: 50%;
+  padding: 5px;
+  /* margin-left: 185px; */
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  /* margin-bottom: 5px; */
+  border: 1px solid black;
+  align-items: center;
+}
+form div {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+.contactbox p {
+  color: black;
+  text-align: center;
+  /* margin-left: 240px; */
+  text-transform: capitalize;
+  padding-top: 2%;
+}
+.contactbox form textarea {
+  height: 30vh;
+  width: 50%;
+  /* width: 100%; */
+  text-align: center;
+  margin-bottom: 5px;
+  /* margin-left: 185px; */
+  border: 1px solid black;
+  /* padding-bottom: -400px; */
+  border-radius: 5px;
+}
+.contactbox form div {
+  margin-top: 3%;
+}
+#btn {
+  background: black;
+  color: white;
+  text-transform: capitalize;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 80px;
+  cursor: pointer;
+  margin-left: 40%;
+  padding: 7px;
+}
+/* styling contact done */
+
+/* styling footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+  /* background-color: rgb(247, 244, 244); */
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer p {
+  margin-bottom: 10px;
+  color: black;
+}
+.footer .fitem ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer .fitem li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #1e1e1e;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 20px;
+}
+.footer .fitem li:hover {
+  text-decoration: underline;
+}
+.fitem {
+  flex-basis: 25%;
+}
+
+.fitem i {
+  color: rgb(8, 8, 8);
+}
+
+/* styling footer done  */
+
+.result {
+  text-align: center;
+  font-weight: bold;
+  color: #004a99;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.symptom-btn {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.symptom-btn.selected {
+  background-color: #a0d8ef;
+}
+
+#symptomButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  max-height: 400px; /* optional: limit height */
+  overflow-y: auto; /* optional: scroll if too tall */
+  padding: 10px 0;
+  /* margin-top: 10px; */
+}
+
+.symptom-btn {
+  padding: 8px 12px;
+  background-color: #e3e3e3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.symptom-btn.selected {
+  background-color: #90cdf4; /* highlighted color */
+}
+
+#symptomButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.disease-details {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+.disease-details h3 {
+  margin-bottom: 10px;
+  color: #2a7ae2;
+}
+.disease-details p {
+  margin: 0.5rem 0;
+}
+.input-group {
+  max-width: 1000px;
+  margin: auto;
+  /* padding: 10px; */
+}
+
+/* Phones */
+@media screen and (max-width: 600px) {
+  #symptomButtons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .symptom-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+/* Tablets */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  #symptomButtons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 901px) {
+  #symptomButtons {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
