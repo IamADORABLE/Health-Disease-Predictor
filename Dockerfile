@@ -1,5 +1,5 @@
 # Use official Python 3.10 image
-FROM python:3.10
+FROM python:3.10-slim
 
 # Set environment vars
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -8,15 +8,15 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory
 WORKDIR /app
 
-# Copy all project files
+# Copy only requirements first for better Docker layer caching
+COPY requirements.txt /app/
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Then copy the rest of your app
 COPY . /app/
 
-# Install dependencies
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-# Expose port (default Flask port)
+# Expose Flask port
 EXPOSE 5000
 
-# Start the app (change 'app' if needed)
-CMD ["gunicorn", "app:app"]
+# Start the app with Gunicorn
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000"]
